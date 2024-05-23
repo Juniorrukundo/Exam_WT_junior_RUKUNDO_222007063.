@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment Form</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Assignment Form</h2>
+    <form id="assignmentForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="assignmentId">Assignment ID:</label>
+        <input type="text" id="assignmentId" name="assignmentId" required>
+      </div>
+      <div class="form-group">
+        <label for="workshopId">Workshop ID:</label>
+        <input type="text" id="workshopId" name="workshopId" required>
+      </div>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" name="dueDate" required>
+      </div>
+      <div class="form-group">
+        <label for="maxScore">Max Score:</label>
+        <input type="number" id="maxScore" name="maxScore" min="0" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var assignmentId = document.getElementById("assignmentId").value;
+      var workshopId = document.getElementById("workshopId").value;
+      var title = document.getElementById("title").value;
+      var description = document.getElementById("description").value;
+      var dueDate = document.getElementById("dueDate").value;
+      var maxScore = document.getElementById("maxScore").value;
+
+      if (assignmentId == "" || workshopId == "" || title == "" || description == "" || dueDate == "" || maxScore == "") {
+        alert("All fields are required");
+        return false;
+      }
+
+      // Add more validation logic as needed
+
+      return true;
+    }
+  </script>
+</body>
+</html>

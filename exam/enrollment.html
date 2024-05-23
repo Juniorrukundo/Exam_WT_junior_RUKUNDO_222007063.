@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Form</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="number"] {
+      width: calc(100% - 16px);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enrollment Form</h2>
+    <form id="enrollmentForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="enrollmentId">Enrollment ID:</label>
+        <input type="text" id="enrollmentId" name="enrollmentId" required>
+      </div>
+      <div class="form-group">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+      </div>
+      <div class="form-group">
+        <label for="workshopId">Workshop ID:</label>
+        <input type="text" id="workshopId" name="workshopId" required>
+      </div>
+      <div class="form-group">
+        <label for="enrollmentDate">Enrollment Date:</label>
+        <input type="date" id="enrollmentDate" name="enrollmentDate" required>
+      </div>
+      <div class="form-group">
+        <label for="enrollmentStatus">Enrollment Status:</label>
+        <select id="enrollmentStatus" name="enrollmentStatus" required>
+          <option value="">Select Enrollment Status</option>
+          <option value="pending">Pending</option>
+          <option value="enrolled">Enrolled</option>
+          <option value="cancelled">Cancelled</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="progress">Progress:</label>
+        <input type="number" id="progress" name="progress" min="0" max="100" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var enrollmentId = document.getElementById("enrollmentId").value;
+      var userId = document.getElementById("userId").value;
+      var workshopId = document.getElementById("workshopId").value;
+      var enrollmentDate = document.getElementById("enrollmentDate").value;
+      var enrollmentStatus = document.getElementById("enrollmentStatus").value;
+      var progress = document.getElementById("progress").value;
+
+      if (enrollmentId == "" || userId == "" || workshopId == "" || enrollmentDate == "" || enrollmentStatus == "" || progress == "") {
+        alert("All fields are required");
+        return false;
+      }
+
+      // Add more validation logic as needed
+
+      return true;
+    }
+  </script>
+</body>
+</html>

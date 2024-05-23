@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendees Form</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Attendees Form</h2>
+    <form id="attendeesForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="attendeeId">Attendee ID:</label>
+        <input type="text" id="attendeeId" name="attendeeId" required>
+      </div>
+      <div class="form-group">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+      </div>
+      <div class="form-group">
+        <label for="workshopId">Workshop ID:</label>
+        <input type="text" id="workshopId" name="workshopId" required>
+      </div>
+      <div class="form-group">
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="attendeeStatus">Attendee Status:</label>
+        <select id="attendeeStatus" name="attendeeStatus" required>
+          <option value="">Select Attendee Status</option>
+          <option value="registered">Registered</option>
+          <option value="attended">Attended</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var attendeeId = document.getElementById("attendeeId").value;
+      var userId = document.getElementById("userId").value;
+      var workshopId = document.getElementById("workshopId").value;
+      var feedback = document.getElementById("feedback").value;
+      var attendeeStatus = document.getElementById("attendeeStatus").value;
+
+      if (attendeeId == "" || userId == "" || workshopId == "" || attendeeStatus == "") {
+        alert("All fields are required");
+        return false;
+      }
+
+      // Add more validation logic as needed
+
+      return true;
+    }
+  </script>
+</body>
+</html>

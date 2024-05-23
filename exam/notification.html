@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification Form</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Notification Form</h2>
+    <form id="notificationForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="notificationId">Notification ID:</label>
+        <input type="text" id="notificationId" name="notificationId" required>
+      </div>
+      <div class="form-group">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="notificationType">Notification Type:</label>
+        <select id="notificationType" name="notificationType" required>
+          <option value="">Select Notification Type</option>
+          <option value="email">Email</option>
+          <option value="sms">SMS</option>
+          <option value="app">App</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="createdDate">Created Date:</label>
+        <input type="date" id="createdDate" name="createdDate" required>
+      </div>
+      <div class="form-group">
+        <label for="readStatus">Read Status:</label>
+        <select id="readStatus" name="readStatus" required>
+          <option value="">Select Read Status</option>
+          <option value="read">Read</option>
+          <option value="unread">Unread</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var notificationId = document.getElementById("notificationId").value;
+      var userId = document.getElementById("userId").value;
+      var message = document.getElementById("message").value;
+      var notificationType = document.getElementById("notificationType").value;
+      var createdDate = document.getElementById("createdDate").value;
+      var readStatus = document.getElementById("readStatus").value;
+
+      if (notificationId == "" || userId == "" || message == "" || notificationType == "" || createdDate == "" || readStatus == "") {
+        alert("All fields are required");
+        return false;
+      }
+
+      // Add more validation logic as needed
+
+      return true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership Resources Upload Form</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="number"] {
+      width: calc(100% - 16px);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Leadership Resources Upload Form</h2>
+    <form id="resourcesForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="uploaderId">Uploader ID:</label>
+        <input type="text" id="uploaderId" name="uploaderId" required>
+      </div>
+      <div class="form-group">
+        <label for="uploadDate">Upload Date:</label>
+        <input type="date" id="uploadDate" name="uploadDate" required>
+      </div>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="resourceType">Resource Type:</label>
+        <select id="resourceType" name="resourceType" required>
+          <option value="">Select Resource Type</option>
+          <option value="article">Article</option>
+          <option value="video">Video</option>
+          <option value="presentation">Presentation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var uploaderId = document.getElementById("uploaderId").value;
+      var uploadDate = document.getElementById("uploadDate").value;
+      var title = document.getElementById("title").value;
+      var description = document.getElementById("description").value;
+      var resourceType = document.getElementById("resourceType").value;
+      var rating = document.getElementById("rating").value;
+
+      if (uploaderId == "" || uploadDate == "" || title == "" || description == "" || resourceType == "" || rating == "") {
+        alert("All fields are required");
+        return false;
+      }
+
+      // Add more validation logic as needed
+
+      return true;
+    }
+  </script>
+</body>
+</html>
